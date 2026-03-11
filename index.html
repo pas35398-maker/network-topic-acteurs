@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Player Topic Network</title>
+
+<script src="https://unpkg.com/sigma@2"></script>
+<script src="https://unpkg.com/graphology"></script>
+
+<style>
+body { margin:0; }
+#container { width:100vw; height:100vh; }
+</style>
+
+</head>
+
+<body>
+
+<div id="container"></div>
+
+<script>
+fetch("graph.json")
+.then(r => r.json())
+.then(data => {
+
+  const graph = graphology.Graph.from(data);
+
+  const renderer = new sigma.Sigma(
+    graph,
+    document.getElementById("container")
+  );
+
+});
+</script>
+
+</body>
+</html>
